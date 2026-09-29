@@ -16,16 +16,15 @@
         <p>Create a professional profile card</p>
     </header>
 
-    <!-- Profile Form -->
+    <% if (message) { %>
+        <div class="message">
+            <%= message %>
+        </div>
+    <% } %>
+
     <div class="form-card">
 
         <h2>Enter Profile Details</h2>
-
-        <% if (message) { %>
-            <div class="message">
-                <%= message %>
-            </div>
-        <% } %>
 
         <form action="/profile" method="POST">
 
@@ -55,7 +54,7 @@
                 required
             >
 
-            <label for="linkedin">LinkedIn</label>
+            <label for="linkedin">LinkedIn URL</label>
             <input
                 type="url"
                 id="linkedin"
@@ -63,7 +62,7 @@
                 placeholder="https://linkedin.com/in/yourprofile"
             >
 
-            <label for="github">GitHub</label>
+            <label for="github">GitHub URL</label>
             <input
                 type="url"
                 id="github"
@@ -79,8 +78,6 @@
 
     </div>
 
-
-    <!-- Generated Profile Card -->
     <% if (profile) { %>
 
     <div class="profile-card">
@@ -97,28 +94,19 @@
             <%= profile.bio %>
         </p>
 
-
-        <!-- Skills -->
         <div class="skills">
 
             <% profile.skills.split(',').forEach(function(skill) { %>
-
                 <span>
                     <%= skill.trim() %>
                 </span>
-
             <% }); %>
 
         </div>
 
-
-        <!-- Social Links -->
-        <% if (profile.linkedin || profile.github) { %>
-
         <div class="social-links">
 
             <% if (profile.linkedin) { %>
-
                 <a
                     href="<%= profile.linkedin %>"
                     target="_blank"
@@ -126,12 +114,9 @@
                 >
                     LinkedIn
                 </a>
-
             <% } %>
 
-
             <% if (profile.github) { %>
-
                 <a
                     href="<%= profile.github %>"
                     target="_blank"
@@ -139,13 +124,9 @@
                 >
                     GitHub
                 </a>
-
             <% } %>
 
         </div>
-
-        <% } %>
-
 
         <div class="saved">
             ✓ Profile saved successfully
