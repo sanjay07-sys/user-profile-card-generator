@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Card Generator</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
 
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>User Profile Card Generator</h1>
+        <p>Create a professional profile card</p>
+    </header>
+
+    <!-- Profile Form -->
+    <div class="form-card">
+
+        <h2>Enter Profile Details</h2>
+
+        <% if (message) { %>
+            <div class="message">
+                <%= message %>
+            </div>
+        <% } %>
+
+        <form action="/profile" method="POST">
+
+            <label for="name">Name</label>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                required
+            >
+
+            <label for="bio">Bio</label>
+            <textarea
+                id="bio"
+                name="bio"
+                placeholder="Write a short bio"
+                required
+            ></textarea>
+
+            <label for="skills">Skills</label>
+            <input
+                type="text"
+                id="skills"
+                name="skills"
+                placeholder="HTML, CSS, JavaScript, Node.js"
+                required
+            >
+
+            <label for="linkedin">LinkedIn</label>
+            <input
+                type="url"
+                id="linkedin"
+                name="linkedin"
+                placeholder="https://linkedin.com/in/yourprofile"
+            >
+
+            <label for="github">GitHub</label>
+            <input
+                type="url"
+                id="github"
+                name="github"
+                placeholder="https://github.com/yourusername"
+            >
+
+            <button type="submit">
+                Generate Profile
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- Generated Profile Card -->
+    <% if (profile) { %>
+
+    <div class="profile-card">
+
+        <div class="avatar">
+            <%= profile.name.charAt(0).toUpperCase() %>
+        </div>
+
+        <h2>
+            <%= profile.name %>
+        </h2>
+
+        <p class="bio">
+            <%= profile.bio %>
+        </p>
+
+
+        <!-- Skills -->
+        <div class="skills">
+
+            <% profile.skills.split(',').forEach(function(skill) { %>
+
+                <span>
+                    <%= skill.trim() %>
+                </span>
+
+            <% }); %>
+
+        </div>
+
+
+        <!-- Social Links -->
+        <% if (profile.linkedin || profile.github) { %>
+
+        <div class="social-links">
+
+            <% if (profile.linkedin) { %>
+
+                <a
+                    href="<%= profile.linkedin %>"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn
+                </a>
+
+            <% } %>
+
+
+            <% if (profile.github) { %>
+
+                <a
+                    href="<%= profile.github %>"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+
+            <% } %>
+
+        </div>
+
+        <% } %>
+
+
+        <div class="saved">
+            ✓ Profile saved successfully
+        </div>
+
+    </div>
+
+    <% } %>
+
+</div>
+
+</body>
+</html>
