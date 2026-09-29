@@ -1,1 +1,176 @@
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #f4f6f8;
+    padding: 40px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #222;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #666;
+}
+
+.form-card,
+.profile-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+}
+
+.form-card h2 {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #4f46e5;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3730a3;
+}
+
+.message {
+    background: #eef2ff;
+    color: #3730a3;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.profile-card {
+    text-align: center;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #4f46e5;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.profile-card h2 {
+    margin-bottom: 12px;
+    color: #222;
+}
+
+.bio {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.skills {
+    margin-bottom: 20px;
+}
+
+.skills span {
+    display: inline-block;
+    background: #eef2ff;
+    color: #3730a3;
+    padding: 7px 12px;
+    border-radius: 20px;
+    margin: 4px;
+    font-size: 13px;
+}
+
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 14px;
+    border-radius: 7px;
+    background: #f1f1f1;
+    color: #333;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background: #ddd;
+}
+
+.saved {
+    margin-top: 20px;
+    color: #15803d;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .form-card,
+    .profile-card {
+        padding: 20px;
+    }
+}
